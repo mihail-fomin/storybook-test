@@ -14,6 +14,22 @@ const meta: Meta<typeof TextInput> = {
   parameters: {
     layout: 'padded',
     controls: { expanded: true },
+    chromatic: {
+      modes: {
+        mobile: {
+          viewport: 'mobile',
+        },
+        tablet: {
+          viewport: 'tablet',
+        },
+        desktop: {
+          viewport: 'desktop',
+        },
+        'desktop-large': {
+          viewport: 'desktop-large',
+        },
+      },
+    },
   },
 };
 

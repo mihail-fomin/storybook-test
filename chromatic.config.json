@@ -1,5 +1,45 @@
 {
   "onlyChanged": true,
   "projectId": "Project:6910be29fa4c89c51c42c924",
-  "zip": true
+  "zip": true,
+  "viewports": [
+    {
+      "name": "mobile",
+      "width": 375,
+      "height": 667
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "name": "desktop",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "name": "desktop-large",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "modes": {
+    "mobile": {
+      "viewport": "mobile",
+      "scale": 1
+    },
+    "tablet": {
+      "viewport": "tablet",
+      "scale": 1
+    },
+    "desktop": {
+      "viewport": "desktop",
+      "scale": 1
+    },
+    "desktop-large": {
+      "viewport": "desktop-large",
+      "scale": 1
+    }
+  }
 }
