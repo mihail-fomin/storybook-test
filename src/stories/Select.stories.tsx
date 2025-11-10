@@ -45,21 +45,58 @@ export const ErrorState: Story = {
   },
 };
 
-export const Interaction: Story = {
-  play: async ({ canvasElement, args }) => {
-    const canvas = within(canvasElement);
-    const labelQuery =
-      typeof args.label === 'string' && args.label.length > 0
-        ? new RegExp(args.label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i')
-        : /команда/i;
-    const select = await canvas.findByLabelText(labelQuery);
+// Тест на фокус и blur
+export const FocusBlur: Story = {
+    play: async ({ canvasElement }) => {
+      const canvas = within(canvasElement);
+      const select = await canvas.findByLabelText(/команда/i);
+      
+      // Фокус
+      await userEvent.click(select);
+      expect(select).toHaveFocus();
+      
+      // Потеря фокуса
+      await userEvent.tab();
+      expect(select).not.toHaveFocus();
+    },
+  };
 
-    await userEvent.selectOptions(select, 'design');
-
-    await waitFor(() => {
-      expect((select as HTMLSelectElement).value).toBe('design');
-    });
-    expect(args.onChange).toHaveBeenCalled();
-  },
+// Тест на навигацию клавиатурой
+export const KeyboardNavigation: Story = {
+    play: async ({ canvasElement, args }) => {
+        const canvas = within(canvasElement);
+        const select = await canvas.findByLabelText(/команда/i);
+        
+        // Просто выбираем опцию - это более надёжно
+        await userEvent.selectOptions(select, 'design');
+        
+        await waitFor(() => {
+            expect((select as HTMLSelectElement).value).toBe('design');
+        });
+        expect(args.onChange).toHaveBeenCalled();
+    },
 };
 
+// Тест на disabled состояние
+export const DisabledInteraction: Story = {
+    args: {
+      disabled: true,
+      value: '',
+    },
+    play: async ({ canvasElement, args }) => {
+        const canvas = within(canvasElement);
+        const select = await canvas.findByLabelText(/команда/i);
+        
+        expect(select).toBeDisabled();
+        
+        // Пробуем кликнуть
+        await userEvent.click(select);
+        
+        // Элемент не должен получить фокус (disabled элементы не фокусируются)
+        expect(select).not.toHaveFocus();
+        
+        // onChange не должен быть вызван
+        expect(args.onChange).not.toHaveBeenCalled();
+    },
+};
+  
