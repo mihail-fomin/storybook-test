@@ -21,6 +21,38 @@ const preview: Preview = {
         { name: 'brand', value: '#1d4ed8' },
       ],
     },
+    viewport: {
+      viewports: {
+        mobile: {
+          name: 'Mobile',
+          styles: {
+            width: '375px',
+            height: '667px',
+          },
+        },
+        tablet: {
+          name: 'Tablet',
+          styles: {
+            width: '768px',
+            height: '1024px',
+          },
+        },
+        desktop: {
+          name: 'Desktop',
+          styles: {
+            width: '1280px',
+            height: '800px',
+          },
+        },
+        desktopLarge: {
+          name: 'Desktop Large',
+          styles: {
+            width: '1920px',
+            height: '1080px',
+          },
+        },
+      },
+    },
     options: {
       storySort: {
         order: ['Foundation', ['Button', 'TextInput', 'Select', 'CustomCheckbox'], 'Docs'],

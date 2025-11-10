@@ -25,8 +25,8 @@ const meta: Meta<typeof TextInput> = {
         desktop: {
           viewport: 'desktop',
         },
-        'desktop-large': {
-          viewport: 'desktop-large',
+        desktopLarge: {
+          viewport: 'desktopLarge',
         },
       },
     },
