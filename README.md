@@ -47,9 +47,4 @@ tests/visual/        # визуальные регрессы Playwright
 3. **Доступность**: проверяется аддоном a11y прямо в Storybook и в test-runner.
 4. **Визуальная регрессия**: соберите статический Storybook и прогоните Playwright, чтобы сравнить скриншоты.
 
-## Полезные ссылки
-
-- [Storybook test-runner](https://storybook.js.org/docs/writing-tests/test-runner)
-- [Vitest + Testing Library](https://vitest.dev/guide/testing-library.html)
-- [Playwright для визуальных регрессов](https://playcwright.dev/docs/test-snapshots)
 # storybook-test
