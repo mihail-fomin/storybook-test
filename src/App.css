@@ -1,0 +1,77 @@
+#root {
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  background: radial-gradient(circle at top left, #eff6ff, transparent 55%),
+    radial-gradient(circle at bottom right, #f5f3ff, transparent 50%),
+    #f8fafc;
+  color: #0f172a;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.app-shell {
+  max-width: 720px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 2rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 2.5rem 3rem;
+  box-shadow:
+    0 40px 80px -40px rgba(15, 23, 42, 0.45),
+    0 20px 40px -30px rgba(99, 102, 241, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.app-shell__header {
+  display: grid;
+  gap: 0.75rem;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.app-shell__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.3vw, 2.25rem);
+  letter-spacing: -0.02em;
+}
+
+.app-shell__subtitle {
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  max-width: 42ch;
+}
+
+.app-form {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.app-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.app-actions .ds-button:last-of-type {
+  min-width: 10rem;
+}
+
+@media (max-width: 640px) {
+  #root {
+    padding: 2rem 1rem;
+  }
+
+  .app-shell {
+    border-radius: 1.5rem;
+    padding: 2rem;
+  }
+
+  .app-actions {
+    flex-direction: column;
+  }
+
+  .app-actions .ds-button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,137 @@
+.ds-field {
+  display: grid;
+  gap: 0.4rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #0f172a;
+}
+
+.ds-field[data-disabled="true"] {
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+[data-theme='dark'] .ds-field {
+  color: #e2e8f0;
+}
+
+.ds-field__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ds-field__required {
+  color: #ef4444;
+  font-size: 0.75rem;
+}
+
+.ds-field__helper,
+.ds-field__error {
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.ds-field__helper {
+  color: #64748b;
+}
+
+.ds-field__error {
+  color: #ef4444;
+}
+
+.ds-input {
+  --ds-input-border: #cbd5f5;
+  --ds-input-bg: #ffffff;
+  --ds-input-color: #0f172a;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 0.75rem;
+  border: 1px solid var(--ds-input-border);
+  gap: 0.5rem;
+  background-color: var(--ds-input-bg);
+  transition:
+    border-color 120ms ease,
+    box-shadow 120ms ease,
+    background-color 120ms ease;
+}
+
+[data-theme='dark'] .ds-input {
+  --ds-input-border: rgba(148, 163, 184, 0.35);
+  --ds-input-bg: rgba(15, 23, 42, 0.6);
+  --ds-input-color: #e2e8f0;
+}
+
+.ds-input:focus-within {
+  --ds-input-border: #2563eb;
+  box-shadow: 0 0 0 4px #2563eb22;
+}
+
+.ds-input--error {
+  --ds-input-border: #ef4444;
+  box-shadow: 0 0 0 4px #ef444422;
+}
+
+.ds-input--sm {
+  min-height: 2.25rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+}
+
+.ds-input--md {
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  font-size: 0.95rem;
+}
+
+.ds-input--lg {
+  min-height: 3.25rem;
+  padding: 0 1.25rem;
+  font-size: 1.05rem;
+}
+
+.ds-input--with-prefix {
+  padding-left: 0.5rem;
+}
+
+.ds-input--with-suffix {
+  padding-right: 0.5rem;
+}
+
+.ds-input__control {
+  flex: 1 1 auto;
+  border: 0;
+  outline: none;
+  font: inherit;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.ds-input__control::placeholder {
+  color: #94a3b8;
+}
+
+.ds-field[data-disabled="true"] .ds-input {
+  background-color: rgba(148, 163, 184, 0.15);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+.ds-input__affix {
+  color: #64748b;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ds-input__affix--prefix {
+  padding-left: 0.4rem;
+}
+
+.ds-input__affix--suffix {
+  padding-right: 0.4rem;
+}
+

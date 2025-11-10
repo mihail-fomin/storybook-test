@@ -1,0 +1,187 @@
+:root {
+  color-scheme: light dark;
+}
+
+.ds-button {
+  --ds-button-bg: var(--ds-color-surface, #2563eb);
+  --ds-button-color: var(--ds-color-on-surface, #ffffff);
+  --ds-button-border: transparent;
+  --ds-button-bg-hover: color-mix(in srgb, var(--ds-button-bg) 85%, #ffffff);
+  --ds-button-shadow: 0 1px 2px rgba(15, 23, 42, 0.25);
+  appearance: none;
+  border-radius: 0.75rem;
+  border: 1px solid var(--ds-button-border);
+  box-shadow: var(--ds-button-shadow);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  overflow: hidden;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    background-color 120ms ease,
+    border-color 120ms ease,
+    color 120ms ease,
+    opacity 120ms ease;
+  gap: 0.5rem;
+  line-height: 1;
+  position: relative;
+  min-width: 0;
+}
+
+.ds-button::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+      120% 120% at 50% 0%,
+      rgba(255, 255, 255, 0.45),
+      rgba(255, 255, 255, 0) 60%
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.ds-button--primary::before {
+  background:
+    radial-gradient(
+      140% 140% at 50% -20%,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0) 65%
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+}
+
+.ds-button:not(:disabled):hover::before,
+.ds-button:not(:disabled):focus-visible::before {
+  opacity: 1;
+}
+
+.ds-button:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--ds-button-bg) 90%, #ffffff);
+  outline-offset: 3px;
+}
+
+.ds-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+.ds-button:not(:disabled):active {
+  transform: translateY(1px);
+  box-shadow: 0 0.5px 1px rgba(15, 23, 42, 0.2);
+}
+
+.ds-button--full-width {
+  width: 100%;
+}
+
+.ds-button--sm {
+  height: 2rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+}
+
+.ds-button--md {
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  font-size: 0.95rem;
+}
+
+.ds-button--lg {
+  height: 3rem;
+  padding: 0 1.5rem;
+  font-size: 1.05rem;
+}
+
+.ds-button--primary {
+  --ds-button-bg: #2563eb;
+  --ds-button-bg-hover: #1d4ed8;
+  --ds-button-color: #ffffff;
+  --ds-button-border: transparent;
+}
+
+.ds-button--secondary {
+  --ds-button-bg: #f3f4f6;
+  --ds-button-bg-hover: #e5e7eb;
+  --ds-button-color: #111827;
+  --ds-button-border: #d1d5db;
+  --ds-button-shadow: none;
+}
+
+.ds-button--ghost {
+  --ds-button-bg: transparent;
+  --ds-button-bg-hover: rgba(37, 99, 235, 0.08);
+  --ds-button-color: #2563eb;
+  --ds-button-border: transparent;
+  --ds-button-shadow: none;
+}
+
+.ds-button:not(:disabled) {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ds-button-bg) 92%, #ffffff), var(--ds-button-bg));
+  color: var(--ds-button-color);
+}
+
+.ds-button:not(:disabled):hover {
+  background: linear-gradient(180deg, var(--ds-button-bg-hover), color-mix(in srgb, var(--ds-button-bg-hover) 85%, #0f172a));
+}
+
+[data-theme='dark'] .ds-button--secondary {
+  --ds-button-bg: rgba(148, 163, 184, 0.12);
+  --ds-button-bg-hover: rgba(148, 163, 184, 0.2);
+  --ds-button-color: #e2e8f0;
+  --ds-button-border: rgba(148, 163, 184, 0.3);
+}
+
+[data-theme='dark'] .ds-button--ghost {
+  --ds-button-color: #93c5fd;
+  --ds-button-bg-hover: rgba(147, 197, 253, 0.18);
+}
+
+.ds-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.ds-button__icon--leading {
+  margin-left: -0.125rem;
+}
+
+.ds-button__icon--trailing {
+  margin-right: -0.125rem;
+}
+
+.ds-button__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ds-button--loading .ds-button__label {
+  opacity: 0.75;
+}
+
+.ds-button__spinner {
+  width: 0.9em;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  border: 2px solid color-mix(in srgb, var(--ds-button-color) 35%, transparent);
+  border-top-color: var(--ds-button-color);
+  animation: ds-button-spin 650ms linear infinite;
+}
+
+@keyframes ds-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

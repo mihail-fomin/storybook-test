@@ -1,0 +1,42 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Тестирование дизайн-системы" />
+
+<Title>Подход к тестированию</Title>
+<Subtitle>Единый pipeline качества для компонентов дизайн-системы</Subtitle>
+
+<Description>
+  Этот пример демонстрирует настройку нескольких уровней тестирования поверх Storybook:
+</Description>
+
+<ul>
+  <li><strong>Unit</strong> — Vitest + Testing Library для проверки API компонентов.</li>
+  <li>
+    <strong>Interaction</strong> — <code>play</code>-функции историй и <code>storybook test</code> для регресса пользовательских сценариев.
+  </li>
+  <li>
+    <strong>Accessibility</strong> — встроенный <code>@storybook/addon-a11y</code> и автоматические проверки в test-runner.
+  </li>
+  <li>
+    <strong>Visual regression</strong> — Playwright делает скриншоты собранного Storybook.
+  </li>
+</ul>
+
+## Скрипты
+
+```bash
+npm run test:unit            # Vitest (unit-тесты)
+npm run test:stories         # Storybook test-runner в watch-режиме
+npm run test:stories:ci      # Storybook test-runner в CI-режиме
+npm run test:visual          # Playwright скриншотирует собранный Storybook
+npm run test:visual:update   # Перезапись эталонных скриншотов
+```
+
+## Рабочий цикл
+
+1. При создании компонента добавьте историю и покрывающий её unit-тест в `src/components/**/__tests__`.
+2. Задокументируйте сценарии в Storybook, описав критичные состояния через `args` и `play`.
+3. Запускайте `npm run test:unit` локально и `npm run test:stories` для интерактивной проверки.
+4. Перед мерджем прогоните `npm run build-storybook && npm run test:visual` для визуальных регрессов.
+
+

@@ -51,5 +51,5 @@ tests/visual/        # визуальные регрессы Playwright
 
 - [Storybook test-runner](https://storybook.js.org/docs/writing-tests/test-runner)
 - [Vitest + Testing Library](https://vitest.dev/guide/testing-library.html)
-- [Playwright для визуальных регрессов](https://playwright.dev/docs/test-snapshots)
+- [Playwright для визуальных регрессов](https://playcwright.dev/docs/test-snapshots)
 # storybook-test
