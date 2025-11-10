@@ -73,3 +73,55 @@ export const Interaction: Story = {
   },
 };
 
+export const SizeSmall: Story = {
+  args: {
+    size: 'sm',
+    label: 'Маленький размер',
+    placeholder: 'Small input',
+    helperText: 'Компактный размер для плотных интерфейсов',
+  },
+};
+
+export const SizeMedium: Story = {
+  args: {
+    size: 'md',
+    label: 'Средний размер',
+    placeholder: 'Medium input (по умолчанию)',
+    helperText: 'Стандартный размер для большинства случаев',
+  },
+};
+
+export const SizeLarge: Story = {
+  args: {
+    size: 'lg',
+    label: 'Большой размер',
+    placeholder: 'Large input',
+    helperText: 'Увеличенный размер для лучшей видимости',
+  },
+};
+
+export const AllSizes: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+      <TextInput
+        size="sm"
+        label="Маленький (Small)"
+        placeholder="Компактный ввод"
+        helperText="min-height: 2.5rem, font-size: 0.925rem"
+      />
+      <TextInput
+        size="md"
+        label="Средний (Medium)"
+        placeholder="Стандартный ввод"
+        helperText="min-height: 3rem, font-size: 1rem"
+      />
+      <TextInput
+        size="lg"
+        label="Большой (Large)"
+        placeholder="Увеличенный ввод"
+        helperText="min-height: 3.5rem, font-size: 1.125rem"
+      />
+    </div>
+  ),
+};
+

@@ -15,11 +15,12 @@
 }
 
 .ds-field__label {
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
+  letter-spacing: -0.01em;
 }
 
 .ds-field__required {
@@ -29,8 +30,9 @@
 
 .ds-field__helper,
 .ds-field__error {
-  font-size: 0.75rem;
-  line-height: 1.2;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 .ds-field__helper {
@@ -49,9 +51,10 @@
   display: flex;
   align-items: center;
   border-radius: 0.75rem;
-  border: 1px solid var(--ds-input-border);
-  gap: 0.5rem;
+  border: 2px solid var(--ds-input-border);
+  gap: 0.625rem;
   background-color: var(--ds-input-bg);
+  font-weight: 500;
   transition:
     border-color 120ms ease,
     box-shadow 120ms ease,
@@ -75,21 +78,24 @@
 }
 
 .ds-input--sm {
-  min-height: 2.25rem;
-  padding: 0 0.75rem;
-  font-size: 0.875rem;
+  min-height: 2.5rem;
+  padding: 0 0.875rem;
+  font-size: 0.925rem;
+  border-radius: 0.625rem;
 }
 
 .ds-input--md {
-  min-height: 2.75rem;
-  padding: 0 1rem;
-  font-size: 0.95rem;
+  min-height: 3rem;
+  padding: 0 1.125rem;
+  font-size: 1rem;
+  border-radius: 0.75rem;
 }
 
 .ds-input--lg {
-  min-height: 3.25rem;
-  padding: 0 1.25rem;
-  font-size: 1.05rem;
+  min-height: 3.5rem;
+  padding: 0 1.375rem;
+  font-size: 1.125rem;
+  border-radius: 0.875rem;
 }
 
 .ds-input--with-prefix {
@@ -107,8 +113,9 @@
   font: inherit;
   background: transparent;
   color: inherit;
-  padding: 0;
-  line-height: 1.2;
+  padding: 0.125rem 0;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 .ds-input__control::placeholder {
